@@ -1,7 +1,8 @@
 import h5py
 import numpy as np
 import matplotlib.pyplot as plt
-
+dir = '/home/lennartgolks/PycharmProjects/openData/'
+dir = '/Users/lennart/PycharmProjects/openData/'
 def plot_he5_data(file_path):
     # Open the .he5 file
     with h5py.File(file_path, 'r') as f:
@@ -11,7 +12,7 @@ def plot_he5_data(file_path):
             print(key)
 
         # Access the dataset
-        dataset = f['/home/lennartgolks/PycharmProjects/openData']  # Replace '/path/to/dataset' with the actual path
+        dataset = f[dir]  # Replace '/path/to/dataset' with the actual path
 
         # Read the data
         data = dataset[:]
@@ -26,6 +27,10 @@ def plot_he5_data(file_path):
 
 # Example usage
 file_path = '/home/lennartgolks/PycharmProjects/openData/MLS-Aura_L2GP-O3_v05-02-c02_2024d085.he5'  # Replace 'path/to/your/file.he5' with the actual file path
+file_path = '/Users/lennart/PycharmProjects/openData/MLS-Aura_L2GP-O3_v05-02-c02_2024d085.he5'
+file_path = dir + '/MLS-Aura_L2GP-O3_v05-02-c02_2024d085.he5'
+file_path = dir + 'AntarcticRegion/MLS-Aura_L2GP-O3_v05-01-c01_2020d125.he5'
+file_path = dir + 'AntarcticRegion/MLS-Aura_L2GP-O3_v05-01-c01_2020d199.he5'
 #plot_he5_data(file_path)
 
 
@@ -92,7 +97,7 @@ with h5py.File(file_path, 'r') as f:
 
 ##
 fig, axs = plt.subplots(tight_layout=True)
-plt.plot(data[:45],pressure[:45])
+plt.plot(data,pressure)
 axs.invert_yaxis()
 axs.set_yscale('log')
 axs.set_ylabel('pressure in' + pressureunits)
@@ -100,7 +105,7 @@ axs.set_xlabel('VMR of Ozone')
 plt.show()
 
 
-
+np.savetxt('testProf.txt', [pressure,data], fmt = '%.15f', delimiter= '\t')
 
 
 
