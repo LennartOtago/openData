@@ -2,7 +2,7 @@ import h5py
 import numpy as np
 import matplotlib.pyplot as plt
 dir = '/home/lennartgolks/PycharmProjects/openData/'
-dir = '/Users/lennart/PycharmProjects/openData/'
+#dir = '/Users/lennart/PycharmProjects/openData/'
 def plot_he5_data(file_path):
     # Open the .he5 file
     with h5py.File(file_path, 'r') as f:
@@ -27,7 +27,7 @@ def plot_he5_data(file_path):
 
 # Example usage
 file_path = '/home/lennartgolks/PycharmProjects/openData/MLS-Aura_L2GP-O3_v05-02-c02_2024d085.he5'  # Replace 'path/to/your/file.he5' with the actual file path
-file_path = '/Users/lennart/PycharmProjects/openData/MLS-Aura_L2GP-O3_v05-02-c02_2024d085.he5'
+#file_path = '/Users/lennart/PycharmProjects/openData/MLS-Aura_L2GP-O3_v05-02-c02_2024d085.he5'
 file_path = dir + '/MLS-Aura_L2GP-O3_v05-02-c02_2024d085.he5'
 file_path = dir + 'AntarcticRegion/MLS-Aura_L2GP-O3_v05-01-c01_2020d125.he5'
 file_path = dir + 'AntarcticRegion/MLS-Aura_L2GP-O3_v05-01-c01_2020d199.he5'
