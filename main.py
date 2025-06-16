@@ -2,7 +2,7 @@ import h5py
 import numpy as np
 import matplotlib.pyplot as plt
 dir = '/home/lennartgolks/PycharmProjects/openData/'
-dir = '/Users/lennart/PycharmProjects/openData/'
+#dir = '/Users/lennart/PycharmProjects/openData/'
 def plot_he5_data(file_path):
     # Open the .he5 file
     with h5py.File(file_path, 'r') as f:
