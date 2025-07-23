@@ -1,8 +1,17 @@
 import h5py
 import numpy as np
 import matplotlib.pyplot as plt
-dir = '/home/lennartgolks/PycharmProjects/openData/'
-dir = '/Users/lennart/PycharmProjects/openData/'
+import os
+cwd = os.getcwd()
+dir_path = os.path.dirname(os.path.realpath(__file__))
+
+from pathlib import Path
+path = Path(cwd) # Path("/here/your/path/file.txt")
+parentDir = str( path.parent.absolute())
+
+
+
+dir = parentDir + '/openData/'
 def plot_he5_data(file_path):
     # Open the .he5 file
     with h5py.File(file_path, 'r') as f:
@@ -83,6 +92,12 @@ def openDatSet(file_path):
         # Read the data
         O3Prec = Prec[:]
 
+        # Read the precision
+        Prec = f['/HDFEOS/SWATHS/O3/Data Fields/O3Precision']  # Replace '/path/to/dataset' with the actual path
+
+        # Read the data
+        O3Prec = Prec[:]
+
 
 
         # # Access the dataset
@@ -154,7 +169,7 @@ plt.show()
 #     plt.show()
 
 
-np.savetxt('testProf.txt', [pressure,data[i]], fmt = '%.15f', delimiter= '\t')
+#np.savetxt('testProf.txt', [pressure,data[i]], fmt = '%.15f', delimiter= '\t')
 
 
 
